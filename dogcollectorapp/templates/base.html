@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dog Collector Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel='stylesheet' href='{% static 'style.css' %}'>
+  </head>
+  <body>
+    <a href='/'>
+      <h1>Dog Collector</h1>
+    </a>
+    <hr />
+
+    {% if user.is_authenticated %}
+
+      <p>Hello <a href='{% url 'profile' user.username %}'>{{ user.username }}!</a></p>
+      <a href='{% url 'logout' %}'>Logout</a>
+    {% else %}
+      <a href='{% url 'login' %}'>Login</a> | <a href='{% url 'signup' %}'>Signup</a>
+    {% endif %}
+
+    <hr />
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>All Rights Reserved, DogCollector 2018</footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src='{% static 'app.js' %}'></script>
+  </body>
+</html>

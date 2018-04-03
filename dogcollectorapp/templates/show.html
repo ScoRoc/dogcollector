@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Name: {{ dog.name }}</h2>
+  <p>Breed: {{ dog.breed }}</p>
+  <p>Description: {{ dog.description }}</p>
+  <p>Age: {{ dog.age }}</p>
+  <a href='/user/{{ dog.user.username }}'>
+    <p>Adopted by: {{ dog.user.username }}</p>
+  </a>
+{% endblock %}
